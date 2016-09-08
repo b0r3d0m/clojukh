@@ -1,0 +1,11 @@
+{
+  :general {
+    :port 5000
+  }
+  :email {
+    :smtp "smtp.email.com" ; FIXME
+    :from "from@email.com" ; FIXME
+    :pass "password"       ; FIXME 
+    :to   "to@email.com"   ; FIXME
+  }
+}
