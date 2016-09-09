@@ -6,6 +6,7 @@ It redirects crash reports to an e-mail provided in a config.
 ## Usage
 
 * git clone
+* Issue SSL certificate
 * vim config.edn
 * Install [Leiningen](http://leiningen.org/)
 * lein run
@@ -35,9 +36,9 @@ int main()
   CR_INSTALL_INFOA info;
   std::memset(&info, 0, sizeof(CR_INSTALL_INFOA));
   info.cb = sizeof(CR_INSTALL_INFOA);
-  info.pszAppName = "helper";              // FIXME
-  info.pszAppVersion = "1.0.0";            // FIXME
-  info.pszUrl = "127.0.0.1:5000/crashrpt"; // FIXME
+  info.pszAppName = "helper";                 // FIXME
+  info.pszAppVersion = "1.0.0";               // FIXME
+  info.pszUrl = "https://127.0.0.1/crashrpt"; // FIXME
   info.dwFlags |= CR_INST_ALL_POSSIBLE_HANDLERS;
   // From the documentation:
   // "It is not recommended to use this flag for regular GUI-based applications, blah-blah-blah"
@@ -72,7 +73,6 @@ int main()
 
 ## TODO
 
-* Add HTTPS support
 * Give user-friendly names to the reports
 
 ## License

@@ -27,4 +27,8 @@
 (defn -main []
   (run-jetty
     (-> clojukh-routes
-        wrap-multipart-params) {:port (:port (:general config))}))
+        wrap-multipart-params) {:http? false
+                                :ssl? true
+                                :ssl-port (:port (:general config))
+                                :keystore (:keystore (:general config))
+                                :key-password (:key-password (:general config))}))
