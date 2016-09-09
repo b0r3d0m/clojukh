@@ -73,7 +73,7 @@ int main()
 
 ## TODO
 
-* Give user-friendly names to the reports
+* Add MD5 into e-mails
 
 ## License
 

@@ -3,6 +3,7 @@
     :port 443
     :keystore "keystore.jks"  ; ISSUE ME
     :key-password "pass"      ; FIXME
+    :crashrpts-dir "."
   }
   :email {
     :smtp "smtp.email.com" ; FIXME
