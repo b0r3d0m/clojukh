@@ -13,6 +13,7 @@
     (let [appname (get (:params req) "appname")
           appversion (get (:params req) "appversion")
           crashrpt (get (:params req) "crashrpt")
+          md5 (get (:params req) "md5")
           outputfile (io/file (:crashrpts-dir (:general config)) (:filename crashrpt))]
       (do
         (io/copy (:tempfile crashrpt) outputfile)
@@ -24,7 +25,7 @@
                        :to (:to (:email config))
                        :subject (format "Crash report (%s %s)" appname appversion)
                        :body [{:type "text/plain"
-                               :content "Look at the file attached"}
+                               :content (str "Look at the file attached.\nMD5: " md5)}
                               {:type :attachment
                                :content outputfile}]})))))
 
