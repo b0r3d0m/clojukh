@@ -1,4 +1,5 @@
 (ns clojukh.core
+  (:require [clojure.tools.logging :as log])
   (:require [clojure.java.io :as io])
   (:require clojure.edn)
   (use compojure.core)
@@ -16,6 +17,7 @@
           md5 (get (:params req) "md5")
           outputfile (io/file (:crashrpts-dir (:general config)) (:filename crashrpt))]
       (do
+        (log/infof "Application %s_%s crashed, see %s for details" appname appversion (:filename crashrpt))
         (io/copy (:tempfile crashrpt) outputfile)
         (send-message {:host (:smtp (:email config))
                        :user (:from (:email config))
