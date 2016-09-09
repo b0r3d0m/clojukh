@@ -16,20 +16,19 @@
           crashrpt (get (:params req) "crashrpt")
           md5 (get (:params req) "md5")
           outputfile (io/file (:crashrpts-dir (:general config)) (:filename crashrpt))]
-      (do
-        (log/infof "Application %s_%s crashed, see %s for details" appname appversion (:filename crashrpt))
-        (io/copy (:tempfile crashrpt) outputfile)
-        (send-message {:host (:smtp (:email config))
-                       :user (:from (:email config))
-                       :pass (:pass (:email config))
-                       :ssl :yes!!!11}
-                      {:from (:from (:email config))
-                       :to (:to (:email config))
-                       :subject (format "Crash report (%s %s)" appname appversion)
-                       :body [{:type "text/plain"
-                               :content (str "Look at the file attached.\nMD5: " md5)}
-                              {:type :attachment
-                               :content outputfile}]})))))
+      (log/infof "Application %s_%s crashed, see %s for details" appname appversion (:filename crashrpt))
+      (io/copy (:tempfile crashrpt) outputfile)
+      (send-message {:host (:smtp (:email config))
+                     :user (:from (:email config))
+                     :pass (:pass (:email config))
+                     :ssl :yes!!!11}
+                    {:from (:from (:email config))
+                     :to (:to (:email config))
+                     :subject (format "Crash report (%s %s)" appname appversion)
+                     :body [{:type "text/plain"
+                             :content (str "Look at the file attached.\nMD5: " md5)}
+                            {:type :attachment
+                             :content outputfile}]}))))
 
 (defn -main []
   (run-jetty
