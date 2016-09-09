@@ -8,7 +8,7 @@
                  [ring "1.5.0"]
                  [com.draines/postal "2.0.0"]
                  [org.clojure/tools.logging "0.3.1"]
-                 ; We want to exclude log4j dependencies that we don't need
+                 ;; We want to exclude log4j dependencies that we don't need
                  [log4j/log4j "1.2.17" :exclusions [javax.mail/mail
                                                   javax.jms/jms
                                                   com.sun.jdmk/jmxtools

@@ -1,13 +1,13 @@
 (ns clojukh.core
-  (:require [clojure.tools.logging :as log])
-  (:require [clojure.java.io :as io])
-  (:require clojure.edn)
-  (use compojure.core)
-  (use postal.core)
-  (use ring.adapter.jetty)
-  (use ring.middleware.multipart-params))
+  (:require [clojure.edn :as edn]
+            [clojure.java.io :as io]
+            [clojure.tools.logging :as log]
+            [compojure.core :refer :all]
+            [postal.core :refer :all]
+            [ring.adapter.jetty :refer :all]
+            [ring.middleware.multipart-params :refer :all]))
 
-(def config (clojure.edn/read-string (slurp "config.edn")))
+(def config (edn/read-string (slurp "config.edn")))
 
 (defroutes clojukh-routes
   (POST "/crashrpt" req
@@ -32,9 +32,8 @@
 
 (defn -main []
   (run-jetty
-    (-> clojukh-routes
-        wrap-multipart-params) {:http? false
-                                :ssl? true
-                                :ssl-port (:port (:general config))
-                                :keystore (:keystore (:general config))
-                                :key-password (:key-password (:general config))}))
+    (wrap-multipart-params clojukh-routes) {:http? false
+                                            :ssl? true
+                                            :ssl-port (:port (:general config))
+                                            :keystore (:keystore (:general config))
+                                            :key-password (:key-password (:general config))}))
