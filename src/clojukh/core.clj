@@ -5,7 +5,8 @@
             [compojure.core :refer :all]
             [postal.core :refer :all]
             [ring.adapter.jetty :refer :all]
-            [ring.middleware.multipart-params :refer :all]))
+            [ring.middleware.multipart-params :refer :all]
+            [ring.util.response :refer :all]))
 
 (def config (edn/read-string (slurp "config.edn")))
 
@@ -29,9 +30,11 @@
                        :body [{:type "text/plain"
                                :content (str "Look at the file attached.\nMD5: " md5)}
                               {:type :attachment
-                               :content outputfile}]}))
+                               :content outputfile}]})
+        (response "Done"))
       (catch Exception ex
-        (log/error ex)))))
+        (log/error ex)
+        {:status 500 :body "Internal error"}))))
 
 (defn -main []
   (run-jetty
