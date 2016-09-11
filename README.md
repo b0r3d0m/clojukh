@@ -1,6 +1,7 @@
 # clojukh
 
 A simple [CrashRpt](http://crashrpt.sourceforge.net/) server written in [Clojure](https://clojure.org/).
+
 It redirects crash reports to an e-mail provided in a config.
 
 ## Usage
@@ -70,6 +71,10 @@ int main()
   // END OF NON-OPTIMIZED SECTION
 }
 ```
+
+## Docs
+
+Docs can be found [here](doc/intro.md)
 
 ## TODO
 
