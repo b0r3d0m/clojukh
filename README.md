@@ -45,6 +45,9 @@ int main()
   // "It is not recommended to use this flag for regular GUI-based applications, blah-blah-blah"
   // Do not tell me what to do, man!
   info.dwFlags |= CR_INST_NO_GUI;
+  info.uPriorities[CR_HTTP] = 1;                     // Use HTTP.
+  info.uPriorities[CR_SMTP] = CR_NEGATIVE_PRIORITY;  // Not use SMTP.
+  info.uPriorities[CR_SMAPI] = CR_NEGATIVE_PRIORITY; // Not use Simple MAPI.
   int res = crInstallA(&info);
   if (res != 0)
   {
