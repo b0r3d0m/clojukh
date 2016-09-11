@@ -1,5 +1,7 @@
 # clojukh
 
+[![Build Status](https://travis-ci.org/b0r3d0m/clojukh.svg?branch=dev)](https://travis-ci.org/b0r3d0m/clojukh)
+
 A simple [CrashRpt](http://crashrpt.sourceforge.net/) server written in [Clojure](https://clojure.org/).
 
 It redirects crash reports to an e-mail provided in a config.
@@ -75,13 +77,19 @@ int main()
 }
 ```
 
+## Run tests
+
+* lein test
+
+It's pretty simple, isn't it?
+
 ## Docs
 
 Docs can be found [here](doc/intro.md)
 
 ## TODO
 
-* ???
+* Write more tests (maybe the mocked ones)
 
 ## License
 
