@@ -18,7 +18,7 @@ But what's the point of writing your own CrashRpt server instead of using the re
 
 ## Usage
 
-Please refer to the [README](README.md) file for details on how to use clojukh.
+Please refer to the [README](../README.md) file for details on how to use clojukh.
 
 ## API details
 
