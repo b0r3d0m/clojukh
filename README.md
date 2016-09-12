@@ -77,6 +77,8 @@ int main()
 }
 ```
 
+Alternatively, you can use the [Docker](https://www.docker.com) [clojukh image](https://hub.docker.com/r/b0r3d0m/clojukh/) to avoid installing the whole environment by yourself. Please follow the instructions at the specified link to get it work.
+
 ## Run tests
 
 * lein test
