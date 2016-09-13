@@ -1,5 +1,7 @@
 # clojukh
 
+![clojukh logo](http://i.imgur.com/RoWk1zy.jpg)
+
 [![Build Status](https://travis-ci.org/b0r3d0m/clojukh.svg?branch=dev)](https://travis-ci.org/b0r3d0m/clojukh)
 
 A simple [CrashRpt](http://crashrpt.sourceforge.net/) server written in [Clojure](https://clojure.org/).
@@ -9,11 +11,12 @@ It redirects crash reports to an e-mail provided in a config.
 ## Usage
 
 * git clone
-* Issue SSL certificate
+* Issue SSL certificate (you can use [SSL For Free](https://www.sslforfree.com/) as a quick start)
 * vim config.edn
+* Install [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * Install [Leiningen](http://leiningen.org/)
 * lein run
-* Make POST requests like this:
+* Crash you application like this:
 
 ```cpp
 /**
@@ -77,7 +80,9 @@ int main()
 }
 ```
 
-Alternatively, you can use the [Docker](https://www.docker.com) [clojukh image](https://hub.docker.com/r/b0r3d0m/clojukh/) to avoid installing the whole environment by yourself. Please follow the instructions at the specified link to get it work.
+### Docker
+
+Alternatively, you can use :whale: [Docker](https://www.docker.com)'s [clojukh image](https://hub.docker.com/r/b0r3d0m/clojukh/) to avoid installing the whole environment by yourself. Please follow the instructions at the specified link to get it work.
 
 ## Run tests
 
